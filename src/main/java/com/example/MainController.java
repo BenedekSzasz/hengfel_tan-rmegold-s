@@ -43,6 +43,7 @@ public class MainController {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setHeaderText("Hibás bemenet");
         alert.setTitle("Hiba");
+        alert.initOwner(App._stage);
         alert.setContentText("Nem lehet üres a bemenet!");
         alert.showAndWait();
     }
