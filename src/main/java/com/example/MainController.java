@@ -51,7 +51,8 @@ public class MainController {
         alert.setTitle("Hiba");
         alert.initOwner(App._stage);
         alert.setContentText(msg);
-        alert.showAndWait();
+        // alert.showAndWait();
+        alert.show();
     }
 
 }
