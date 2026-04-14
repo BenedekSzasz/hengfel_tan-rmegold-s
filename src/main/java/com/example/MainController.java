@@ -34,17 +34,23 @@ public class MainController {
         String radiusStr = radiusField.getText();
         String heightStr = heightField.getText();
         if (radiusStr.isEmpty() || heightStr.isEmpty()) {
-            this.showMsg();
-            throw new InputMismatchException("Hiba! Nem lehet üres a bemenet!");
+            String msg = "Hiba! Nem lehet üres a bemenet!";
+            this.showMsg(msg);
+            throw new InputMismatchException(msg);
+        }
+        if (!radiusStr.matches("[0-9]+") || !heightStr.matches("[0-9]+")) {
+            String msg = "Hiba! Csak szám adható meg!";
+            this.showMsg(msg);
+            throw new InputMismatchException(msg);
         }
     }
 
-    void showMsg() {
+    void showMsg(String msg) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setHeaderText("Hibás bemenet");
         alert.setTitle("Hiba");
         alert.initOwner(App._stage);
-        alert.setContentText("Nem lehet üres a bemenet!");
+        alert.setContentText(msg);
         alert.showAndWait();
     }
 
